@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.xml.ws.RequestWrapper;
 
 /**
  * @author Rison_Lee on 2020/1/13 10:43.
@@ -32,4 +33,13 @@ public class RabbitController {
     public void work(){
        helloProducer.work();
     }
+
+    /**
+     * fanout订阅模式
+     */
+    @RequestMapping("/fanout")
+    public void fanout(){
+        helloProducer.fanout();
+    }
+
 }

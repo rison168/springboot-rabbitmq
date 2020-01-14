@@ -46,10 +46,11 @@ public class HelloProducer {
     public void fanout(){
         String msg = "fanout-订阅模型";
         for (int i = 1; i <= 10; i++){
+            System.out.println("fanout : " + msg + i);
             this.rabbitTemplate.convertAndSend(AmqpConfiguration.FANOUT_EXCHANGE_QUEUE, "", msg + i);
         }
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
