@@ -50,6 +50,14 @@ public class RabbitController {
         helloProducer.direct();
     }
 
+    /**
+     * topic订阅模式
+     */
+    @RequestMapping("/topic")
+    public void topic(){
+        helloProducer.topic();
+    }
+
 
 
 }

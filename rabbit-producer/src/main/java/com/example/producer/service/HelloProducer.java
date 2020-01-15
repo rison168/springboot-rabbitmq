@@ -61,13 +61,30 @@ public class HelloProducer {
      */
     public void direct(){
         String msg = "路由模式";
-        for (int i = 0; i <=10; i++){
+        for (int i = 1; i <=10; i++){
             rabbitTemplate.convertAndSend(AmqpConfiguration.DIRECT_EXCHANG_QUEUE, "direct.routing.key", msg + i);
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * Topic 模式
+     */
+    public void topic(){
+        String msg = "topic模式";
+        for (int i = 1; i <= 5; i ++){
+             rabbitTemplate.convertAndSend(AmqpConfiguration.TOPIC_EXCHANG_QUEUE, "key." + i, msg + i + " key=key.*" );
+             rabbitTemplate.convertAndSend(AmqpConfiguration.TOPIC_EXCHANG_QUEUE, "topic." + i, msg + i + " key=topic.*" );
+             rabbitTemplate.convertAndSend(AmqpConfiguration.TOPIC_EXCHANG_QUEUE, "topic." + i + ".test", msg + i + " key=topic.*.test" );
+        }
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
