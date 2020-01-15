@@ -42,4 +42,14 @@ public class RabbitController {
         helloProducer.fanout();
     }
 
+    /**
+     * direct订阅模式
+     */
+    @RequestMapping("/direct")
+    public void direct(){
+        helloProducer.direct();
+    }
+
+
+
 }

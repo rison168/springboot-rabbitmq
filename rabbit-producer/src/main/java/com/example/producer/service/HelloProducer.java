@@ -56,4 +56,20 @@ public class HelloProducer {
         }
     }
 
+    /**
+     * 订阅模式-Direct(路由模式)
+     */
+    public void direct(){
+        String msg = "路由模式";
+        for (int i = 0; i <=10; i++){
+            rabbitTemplate.convertAndSend(AmqpConfiguration.DIRECT_EXCHANG_QUEUE, "direct.routing.key", msg + i);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }

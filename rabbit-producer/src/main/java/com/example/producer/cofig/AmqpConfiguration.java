@@ -15,6 +15,7 @@ public class AmqpConfiguration {
     public static final String TEST_HELLO_SEND = "test_hello_send";
     public static final String WORK_MODEL_QUEUE = "work_model_queue";
     public static final String FANOUT_EXCHANGE_QUEUE = "fanout_exchange_queue";
+    public static final String DIRECT_EXCHANG_QUEUE = "direct_exchange_queue";
 
     @Bean
     public Queue isTestHelloSendQueue(){
